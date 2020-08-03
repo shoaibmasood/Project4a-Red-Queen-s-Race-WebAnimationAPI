@@ -14,6 +14,11 @@
   position: absolute;
   left: 2%;
 }
+
+/* .animations__background{
+
+} */
+
 .animations__Skybg > img {
   width: 100vw;
   height: 85vh;
@@ -22,8 +27,20 @@
 .animations__Earthbg > img {
   width: 100vw;
   height: 15vh;
-  /* position: fixed; */
   bottom: 0;
+}
+
+.animations__bgRook {
+  position: absolute;
+  left: 80%;
+  top: 59%;
+}
+
+.animations__fgpalm {
+  position: absolute;
+  top: 27%;
+  left: 50%;
+  z-index: 5;
 }
 
 .animations__wrapper {
@@ -33,7 +50,7 @@
   left: 30%;
   width: 478px;
   height: 435px;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   overflow: hidden;
 }
 
