@@ -45,12 +45,12 @@ function Animations() {
         <img src={earthbg} alt="earth background" />
       </div>
 
-      <div className={styles.box}>
+      <div className={styles.animations__wrapper}>
         <img
-          ref={alice_queen}
-          className={styles.bandi}
+          className={styles.animations__aliceAndQueen}
           src={alice}
           alt="alice and queen running"
+          ref={alice_queen}
         />
       </div>
     </div>

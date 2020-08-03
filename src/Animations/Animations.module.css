@@ -26,16 +26,18 @@
   bottom: 0;
 }
 
-.box {
+.animations__wrapper {
   position: absolute;
   z-index: 1;
-  top: 80%;
+  top: 50%;
   left: 30%;
   width: 478px;
   height: 435px;
+  border: 2px solid red;
+  overflow: hidden;
 }
 
-.bandi {
+.animations__aliceAndQueen {
   position: absolute;
   z-index: 1;
   width: 105%;
