@@ -9,10 +9,16 @@
   height: auto;
 }
 
+.animations__DecSpeed {
+  position: absolute;
+  top: 10%;
+  z-index: 5;
+}
+
 .animations__Clouds {
   /* width: 100px; */
   position: absolute;
-  left: 2%;
+  /* left: 2%; */
 }
 
 /* .animations__background{
@@ -34,6 +40,12 @@
   position: absolute;
   left: 80%;
   top: 59%;
+}
+
+.animations__bgbush {
+  position: absolute;
+  top: 80%;
+  left: 10%;
 }
 
 .animations__fgpalm {
@@ -59,21 +71,3 @@
   z-index: 1;
   width: 105%;
 }
-
-/* .animations__AliceAndQueen {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  overflow: hidden;
-  width: 80%;
-  max-width: 450px; /*height: 783px / 2*/
-/* z-index: 1; */
-/* } */
-/* 
-.animations__AliceAndQueen img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-} */

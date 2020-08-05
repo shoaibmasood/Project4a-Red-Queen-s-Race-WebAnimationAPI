@@ -10,43 +10,67 @@ import bush from '../images/bush.png';
 import useWebAnimations from '@wellyshen/use-web-animations';
 
 function Animations() {
-  const { ref: clouds } = useWebAnimations({
+  const { ref: clouds, getAnimation: animationCloud } = useWebAnimations({
     keyframes: [
       { transform: 'translateX(1400px)' },
       { transform: 'translateX(-100%)' },
     ],
     timing: {
-      duration: 10000,
+      duration: 10500,
       iterations: Infinity,
       playbackRate: -2,
     },
   });
 
-  const { ref: background } = useWebAnimations({
+  const {
+    ref: background,
+    getAnimation: animationBackground,
+  } = useWebAnimations({
     keyframes: [
       { transform: 'translateX(0)' },
       { transform: 'translateX(-600%)' },
     ],
     timing: {
-      duration: 15000,
+      duration: 36000,
       iterations: Infinity,
-      playbackRate: 0.2,
+      // playbackRate: 0.2,
     },
   });
 
-  const { ref: foreground } = useWebAnimations({
+  const {
+    ref: background_bush,
+    getAnimation: animationBackgroundBush,
+  } = useWebAnimations({
     keyframes: [
       { transform: 'translateX(200%)' },
       { transform: 'translateX(-600%)' },
     ],
     timing: {
-      duration: 25000,
+      duration: 36000,
       iterations: Infinity,
-      playbackRate: 0.1,
+      // playbackRate: 0.2,
     },
   });
 
-  const { ref: alice_queen } = useWebAnimations({
+  const {
+    ref: foreground,
+    getAnimation: animationForeground,
+  } = useWebAnimations({
+    keyframes: [
+      { transform: 'translateX(200%)' },
+      { transform: 'translateX(-600%)' },
+    ],
+    timing: {
+      duration: 15000,
+      iterations: Infinity,
+      // playbackRate: 1,
+    },
+  });
+
+  const {
+    ref: alice_queen,
+    getAnimation: animationAliceQueen,
+  } = useWebAnimations({
     keyframes: [
       { transform: 'translateY(0)' },
       { transform: 'translateY(-100%)' },
@@ -54,14 +78,34 @@ function Animations() {
 
     timing: {
       easing: 'steps(7, end)',
-      duration: 1200,
+      duration: 600,
       iterations: Infinity,
       playbackRate: 1,
     },
   });
 
+  let animations = [
+    animationCloud,
+    animationBackground,
+    animationBackgroundBush,
+    animationForeground,
+    animationAliceQueen,
+  ];
+
+  const handleIncreaseSpeed = () => {
+    animations.forEach((e) => e().updatePlaybackRate(e().playbackRate * 1.2));
+  };
+
+  const handleDecreaseSpeed = () => {
+    animations.forEach((e) => e().updatePlaybackRate(e().playbackRate / 1.2));
+  };
+
   return (
     <div className={styles.animations__Container}>
+      <div className={styles.animations__DecSpeed}>
+        <button onClick={() => handleDecreaseSpeed()}>Decrease Speed</button>
+      </div>
+
       <div className={styles.animations__Clouds}>
         <img ref={clouds} src={cloud} alt="clouds" />
       </div>
@@ -86,6 +130,15 @@ function Animations() {
 
       <div>
         <img
+          src={bush}
+          alt="backgrounditems"
+          className={styles.animations__bgbush}
+          ref={background_bush}
+        />
+      </div>
+
+      <div>
+        <img
           className={styles.animations__fgpalm}
           src={palm2}
           alt="foregrounditems"
@@ -93,7 +146,10 @@ function Animations() {
         />
       </div>
 
-      <div className={styles.animations__wrapper}>
+      <div
+        className={styles.animations__wrapper}
+        onClick={() => handleIncreaseSpeed()}
+      >
         <img
           className={styles.animations__aliceAndQueen}
           src={alice}
